@@ -1,0 +1,1 @@
+from PIL import Image;Image.open('lowres trollfes.jpg').convert('RGB').resize((10**4,)*2,Image.Resampling.BOX).save('bomb.png')
