@@ -18,7 +18,7 @@ img=Image.open(askopenfilename(parent=main,filetypes=(
       ('Portable Network Graphics','*.png'),
       ('Joint Photographic Experts Group',['*.jpg','*.jpeg']),
       ('Other files','*.*')
-   ))).convert('RGBA')
+   ),title='Select an image')).convert('RGBA')
 newimg=Image.new('RGB',(ceil(sqrt(mul(*img.size))),)*2)
 main.title('Select a sorting key')
 r=Button(main,text='R',bg='red',fg='white',command=lambda:buttonHandle(0))
@@ -35,9 +35,11 @@ q=Label(main,text=str(newimg.size))
 for b in [r,g,b,a,any,s,z,q]:b.pack(side='left',padx=4,pady=4)
 main.mainloop()
 if ok:
+   main=Tk()
+   Label(main,text='Working hard...').pack()
    newimg.putdata(sorted(list(img.getdata()),key=None if not V else lambda x:x[V]))
    newimg=newimg.resize((newimg.size[0]*sv.get(),)*2,Image.Resampling.BOX)
    if zv.get():
-      p=askdirectory()
+      p=askdirectory(parent=main,title='Select a destination (random file name)')
       if p:newimg.save(Path(p).joinpath(''.join([choice(ascii_lowercase) for i in range(8)])+'.png').absolute())
    else:newimg.show()
