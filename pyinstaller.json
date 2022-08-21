@@ -72,6 +72,34 @@
   {
    "optionDest": "argv_emulation",
    "value": false
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "tkinter"
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "PIL.Image"
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "operator"
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "pathlib"
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "random"
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "string"
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "tkinter.filedialog"
   }
  ],
  "nonPyinstallerOptions": {
